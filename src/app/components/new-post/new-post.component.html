@@ -1,9 +1,9 @@
 <div class="col-md-12 mt-3">
     <h2>Crear un nuevo post</h2>
-    <div class="alert alert-success" >
+    <div class="alert alert-success" *ngIf="status==0">
       <p>El registro se almacenó correctamente!</p>
     </div>
-    <div class="alert alert-danger" >
+    <div class="alert alert-danger" *ngIf="status==1">
       <p>Error, no se pudo guardar el registro</p>
     </div>
   </div>
@@ -15,18 +15,23 @@
     </div>
     <div class="form-group">
       <label>Contenido del post</label>
-      
+      <angular-editor name="content" [config]="config"></angular-editor>
       <small  class="invalid-feedback d-block">Complete el contenido del post</small>
     </div>
     <div class="form-group">
       <label>Selecione la categoria</label>
       <select class="form-control" name="category_id" >
-        
+        <option *ngFor="let cat of categories" value="{{cat.id}}">
+            {{cat.name}}
+        </option>
       </select>
       <small></small>
     </div>
     <div class="form-group">
-        
+        <input type="file" class="file-input" (change)="uploadImage($event)" #fileUpload/>
+        <button class="upload-btn" (click)="fileUpload.click()">
+            <i class="fas fa-upload">+</i>           
+        </button> {{fileName || "Archivo no ha sido seleccionado"}}
       <small></small>
     </div>
     <input type="submit" value="Guardar" class="btn btn-success" [disabled]="newPostForm.invalid" />

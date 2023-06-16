@@ -16,5 +16,6 @@ import {Observable} from 'rxjs';
         let option={
             headers:header
         }
+        return this._http.get(this.url+"category",option);
     }
 }
