@@ -19,4 +19,18 @@ import { Post } from '../models/post';
         }
         return this._http.get(this.url+"post",option);
     }
+    uploadImage(data:any,token:any):Observable<any>{
+        let header=new HttpHeaders().set('beartoken',token);
+        return this._http.post(this.url+"post/upload",data,{headers:header});
+    }
+    create(post:Post,token:any):Observable<any>{
+        let header=new HttpHeaders()
+            .set('Content-Type','application/x-www-form-urlencoded')
+            .set('beartoken',token);
+        let option={
+            headers:header
+        }
+        let data='data='+JSON.stringify(post);
+        return this._http.post(this.url+"post",data,option);
+    }
 }

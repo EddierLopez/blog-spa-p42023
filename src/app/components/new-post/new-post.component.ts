@@ -56,7 +56,37 @@ export class NewPostComponent {
     });
   }
   uploadImage(event:any){
-
+    const file:File=event.target.files[0];
+    if(file){
+      this.fileName=file.name;
+      const formData=new FormData();
+      formData.append('file0',file);
+      this._postService.uploadImage(formData,this.token).subscribe({
+        next:(response:any)=>{
+          //console.log(response);
+          if(response.status==200){
+            this.post.image=response.image;
+          }
+        },
+        error:(err:Error)=>{
+          console.log(err);
+        }
+      });
+    }
+  }
+  onSubmit(form:any){
+    //console.log(this.post);
+    this._postService.create(this.post,this.token).subscribe({
+      next:(response:any)=>{
+        if(response.status==200){
+          this.status=0;
+          form.reset();
+        }
+      },
+      error:(err:Error)=>{
+        this.status=1;
+      }
+    });
   }
 
 }
