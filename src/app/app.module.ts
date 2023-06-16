@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import{routing,appRoutingProviders} from './app.routing';
 
@@ -23,6 +24,7 @@ import { NewPostComponent } from './components/new-post/new-post.component';
     BrowserModule,
     routing,
     FormsModule,HttpClientModule,
+    AngularEditorModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
