@@ -18,4 +18,7 @@ import {Observable} from 'rxjs';
         }
         return this._http.get(this.url+"category",option);
     }
+    getCategory(id:number):Observable<any>{
+        return this._http.get(this.url+'category/'+id);
+    }
 }

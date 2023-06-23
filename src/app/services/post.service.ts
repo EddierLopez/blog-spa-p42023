@@ -33,4 +33,7 @@ import { Post } from '../models/post';
         let data='data='+JSON.stringify(post);
         return this._http.post(this.url+"post",data,option);
     }
+    getPost(id:number):Observable<any>{
+        return this._http.get(this.url+"post/"+id);
+    }
 }

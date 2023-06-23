@@ -12,13 +12,15 @@ import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { UsersConfigComponent } from './components/users-config/users-config.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     HomeComponent,    
     LoginComponent,    
-    ErrorComponent, UserRegisterComponent, NewPostComponent
+    ErrorComponent, UserRegisterComponent, NewPostComponent, PostDetailComponent, UsersConfigComponent
   ],
   imports: [
     BrowserModule,

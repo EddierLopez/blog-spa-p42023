@@ -58,3 +58,7 @@
   .subnav:hover .subnav-content {
     display: block;
   }
+  .dropdown-menu{
+    position: relative;
+    margin-right: 100px;
+  }

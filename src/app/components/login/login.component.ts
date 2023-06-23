@@ -55,5 +55,20 @@ export class LoginComponent {
       }
     });
   }
+  ngOnInit(): void {
+    this.logout();
+  }
+  logout(){
+    this._routes.params.subscribe(
+      params=>{
+        let logout=+params['sure'];
+        if(logout==1){
+          localStorage.removeItem('identity');
+          localStorage.removeItem('token');
+          this._router.navigate(['']);
+        }
+      }
+    );
+  }
  
 }
